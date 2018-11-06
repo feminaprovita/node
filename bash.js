@@ -1,3 +1,6 @@
+const path = require('./pwd.js');
+const dirContents = require('./ls.js');
+
 // Output a prompt
 process.stdout.write('prompt > ');
 
@@ -5,10 +8,6 @@ process.stdout.write('prompt > ');
 process.stdin.on('data', data => {
   const cmd = data.toString().trim(); // remove the newline
 
-  if (cmd === 'pwd') {
-    console.log(process.cwd());
-  } else {
-    process.stdout.write('You typed: ' + cmd);
-    process.stdout.write('\nprompt > ');
-  }
+  path(cmd);
+  dirContents(cmd);
 });

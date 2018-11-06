@@ -1,8 +1,11 @@
-// function pwd (cmd)
+const pwd = command => {
+  if (command === 'pwd') {
+    console.log(process.cwd());
+  } else {
+    process.stdout.write('You typed: ' + command);
+  }
+  process.stdout.write('\nprompt > ');
+};
 
-module.exports.path = process.cwd();
+module.exports = pwd;
 
-// if (cmd === 'pwd') {
-//   console.log(process.cwd());
-//   process.stdout.write('\nprompt > ');
-// }
